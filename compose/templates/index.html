@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sistema Escolar - Docker</title>
+	<style>
+		body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; color: #343a40; }
+		.container { max-width: 900px; margin: 20px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+		h1, h2 { color: #0056b3; text-align: center; }
+		.form-group { margin-bottom: 15px; }
+		.form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+		.form-group input, select { width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px; box-sizing: border-box; }
+		.btn { background: #007bff; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; display: block; width: 100%; font-size: 16px; }
+		.btn:hover { background: #0056b3; }
+		table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+		th, td { border: 1px solid #dee2e6; padding: 12px; text-align: left; }
+		th { background-color: #e9ecef; }
+		.docker-info { background: #e7f3ff; border-left: 5px solid #007bff; border-radius: 5px; padding: 15px; margin: 25px 0; text-align: center; font-size: 1.1em; }
+		.no-data { text-align: center; color: #6c757d; padding: 20px; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>🐳 Sistema Escolar com Docker Compose</h1>
+		
+		<div class="docker-info">
+			<strong>Aplicação Python (Flask) + MySQL</strong><br>
+			Orquestrada com Docker Compose!
+		</div>
+
+		<h2>Adicionar Novo Estudante</h2>
+		<form method="POST" action="/adicionar">
+			<div class="form-group">
+				<label for="nome">Nome:</label>
+				<input type="text" id="nome" name="nome" required>
+			</div>
+			<div class="form-group">
+				<label for="email">E-mail:</label>
+				<input type="email" id="email" name="email" required>
+			</div>
+			<div class="form-group">
+				<label for="curso">Curso:</label>
+				<select id="curso" name="curso" required>
+					<option value="">Selecione um curso</option>
+					<option value="Banco De Dados">Banco De Dados</option>
+					<option value="Informática">Informática</option>
+					<option value="Administração">Administração</option>
+					<option value="Eletrônica">Eletrônica</option>
+					<option value="Mecânica">Mecânica</option>
+				</select>
+			</div>
+			<button type="submit" class="btn">Adicionar Estudante</button>
+		</form>
+
+		<h2>Lista de Estudantes Matriculados</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>E-mail</th>
+					<th>Curso</th>
+					<th>Data Matrícula</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for estudante in estudantes %}
+				<tr>
+					<td>{{ estudante.id }}</td>
+					<td>{{ estudante.nome }}</td>
+					<td>{{ estudante.email }}</td>
+					<td>{{ estudante.curso }}</td>
+					<td>{{ estudante.data_matricula }}</td>
+				</tr>
+				{% else %}
+				<tr>
+					<td colspan="5" class="no-data">Nenhum estudante cadastrado ainda.</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
