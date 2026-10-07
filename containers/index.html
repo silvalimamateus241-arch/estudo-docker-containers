@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Minha Aplicação Docker</title>
+	<style>
+		body { 
+			font-family: Arial, sans-serif; 
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			margin: 0; 
+			padding: 50px;
+			color: white;
+			text-align: center;
+		}
+		.container { 
+			background: rgba(255,255,255,0.1); 
+			padding: 30px; 
+			border-radius: 15px;
+			backdrop-filter: blur(10px);
+		}
+		h1 { color: #fff; margin-bottom: 20px; }
+		.info { background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; margin: 10px 0; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>🐳 Minha Aplicação Docker</h1>
+		<div class="info">
+			<strong>Autor:</strong> Mateus Da Silva Lima
+		</div>
+		<div class="info">
+			<strong>Curso:</strong> Banco De Dados
+		</div>
+		<div class="info">
+			<strong>Status:</strong> Aplicação rodando em container Docker!
+		</div>
+		<div class="info">
+			<strong>Servidor:</strong> Nginx
+		</div>
+		<div class="info">
+			<strong>Data:</strong> <span id="data"></span>
+		</div>
+	</div>
+	
+	<script>
+		document.getElementById('data').textContent = new Date().toLocaleString('pt-BR');
+	</script>
+</body>
+</html>
