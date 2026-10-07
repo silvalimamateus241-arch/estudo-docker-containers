@@ -1,0 +1,35 @@
+services:
+  app:
+    build: .
+    container_name: app-escola
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DB_HOST: db
+      DB_USER: aluno
+      DB_PASSWORD: aluno123
+      DB_NAME: escola
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: on-failure
+  db:
+    image: mysql:8.0
+    container_name: db-escola
+    environment:
+      MYSQL_ROOT_PASSWORD: senha123
+      MYSQL_DATABASE: escola
+      MYSQL_USER: aluno
+      MYSQL_PASSWORD: aluno123
+    volumes:
+      - db_data:/var/lib/mysql
+      - ../scripts/criar-tabelas.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=$$MYSQL_PASSWORD mysql -h 127.0.0.1 -u$$MYSQL_USER $$MYSQL_DATABASE -e 'SELECT 1 FROM estudantes LIMIT 1' >/dev/null 2>&1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+    restart: unless-stopped
+volumes:
+  db_data:
