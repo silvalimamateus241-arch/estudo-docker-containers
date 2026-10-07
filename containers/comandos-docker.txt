@@ -1,0 +1,28 @@
+# Comandos Docker Aprendidos
+docker --version                       # Versão do cliente
+docker run hello-world                 # Teste do daemon e download de imagem
+docker ps                              # Containers em execução
+docker ps -a                           # Todos os containers
+docker images                          # Imagens locais
+docker pull <imagem>                   # Baixa imagem
+docker rm <container>                  # Remove container parado
+docker rmi <imagem>                     # Remove imagem
+docker run -it ubuntu:latest /bin/bash  # Terminal interativo
+# Dentro do Ubuntu: ls -la; cat /etc/os-release; exit
+docker build -t minha-webapp:1.0 containers
+docker run -d -p 127.0.0.1:8080:80 --name meu-site minha-webapp:1.0
+docker logs meu-site
+docker stop meu-site
+docker start meu-site
+docker exec -it meu-site /bin/sh
+docker compose -f compose/docker-compose.yml up --build -d
+docker compose -f compose/docker-compose.yml ps
+docker compose -f compose/docker-compose.yml logs app
+docker compose -f compose/docker-compose.yml stop
+docker compose -f compose/docker-compose.yml start
+docker compose -f compose/docker-compose.yml down
+# down remove containers e redes; volumes nomeados permanecem sem a opção -v.
+
+## Testes práticos
+PENDENTES: WSL instalado, mas ainda sem distribuição e sem hipervisor ativo.
+Não há resultado de hello-world nem evidência de containers executados nesta etapa.
