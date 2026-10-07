@@ -45,7 +45,7 @@ As senhas dos exemplos são didáticas, conforme o enunciado.
 - [ ] Compose, cadastro e persistência testados.
 - [ ] Capturas de tela adicionadas.
 - [x] Histórico de pelo menos 6 commits de preparação.
-- [ ] Publicação dos arquivos no GitHub.
+- [x] Publicação dos arquivos no GitHub.
 
 ## Verificações realizadas
 Sintaxe Python e Bash válida. O YAML foi lido com sucesso e os testes locais da aplicação passaram para listagem, cadastro parametrizado e falhas do banco. Esses testes usaram um banco simulado; a integração MySQL e a execução em containers continuam pendentes.
@@ -62,5 +62,5 @@ O enunciado menciona “Tarefa 5” no checklist inicial, mas detalha apenas qua
 5. **Trabalho em equipe:** todos podem usar a mesma configuração de ambiente, reduzindo diferenças de versões e facilitando testes e integração.
 
 ## Entrega
-Repositório previsto: https://github.com/silvalimamateus241-arch/estudo-docker-containers.
+Repositório público: https://github.com/silvalimamateus241-arch/estudo-docker-containers.
 A entrega final depende dos testes reais e das evidências. Não confundir os commits de preparação com comprovação de execução dos containers.
