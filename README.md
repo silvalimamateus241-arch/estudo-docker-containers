@@ -44,7 +44,13 @@ As senhas dos exemplos são didáticas, conforme o enunciado.
 - [ ] MySQL, consultas, backup e monitoramento executados.
 - [ ] Compose, cadastro e persistência testados.
 - [ ] Capturas de tela adicionadas.
-- [ ] Histórico de pelo menos 6 commits e publicação no GitHub.
+- [x] Histórico de pelo menos 6 commits de preparação.
+- [ ] Publicação dos arquivos no GitHub.
+
+## Verificações realizadas
+Sintaxe Python e Bash válida. O YAML foi lido com sucesso e os testes locais da aplicação passaram para listagem, cadastro parametrizado e falhas do banco. Esses testes usaram um banco simulado; a integração MySQL e a execução em containers continuam pendentes.
+
+No Windows, a Plataforma de Máquina Virtual está em `EnablePending`: é necessário reiniciar para concluir a ativação e então instalar/iniciar o Ubuntu no WSL.
 
 O enunciado menciona “Tarefa 5” no checklist inicial, mas detalha apenas quatro tarefas práticas. A aplicação completa é a tarefa 4.
 
@@ -56,4 +62,5 @@ O enunciado menciona “Tarefa 5” no checklist inicial, mas detalha apenas qua
 5. **Trabalho em equipe:** todos podem usar a mesma configuração de ambiente, reduzindo diferenças de versões e facilitando testes e integração.
 
 ## Entrega
-Publicar no repositório público `estudo-docker-containers`, após completar os testes e evidências. A URL ainda não foi criada.
+Repositório previsto: https://github.com/silvalimamateus241-arch/estudo-docker-containers.
+A entrega final depende dos testes reais e das evidências. Não confundir os commits de preparação com comprovação de execução dos containers.
